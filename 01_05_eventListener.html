@@ -11,8 +11,8 @@
         <button id="close">닫기</button>
     </div>
 
-    <button onclick = "inputId()">아이디입력</button>
-    <button onclick = "inputPw()">비번입력</button>
+    <button id="button">아이디입력</button>
+    <button onclick = "inputIdPw('비번입력하라고존말할때ㅋ')">비번입력</button>
 
 
     <script>
@@ -20,12 +20,13 @@
             document.getElementById('alert').style.display = 'none';
         });
 
-        function inputId() {
-            document.getElementById('title').innerHTML = '아이디입력하셈';
+        document.getElementById('button').addEventListener('mouseover', function(){
+            document.getElementById('title').innerHTML = '아이디입력하라고존말할때ㅋㅋ';
             document.getElementById('alert').style.display = 'block';
-        }
-        function inputPw() {
-            document.getElementById('title').innerHTML = '비번입력하셈';
+        });
+
+        function inputIdPw(구멍) {
+            document.getElementById('title').innerHTML = 구멍;
             document.getElementById('alert').style.display = 'block';
         }
 
