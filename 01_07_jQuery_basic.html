@@ -26,10 +26,17 @@
         <li class="list-group-item">And a fifth one</li>
       </ul>
 
+      <div class="black-bg">
+        <div class="white-bg">
+          <h4>로그인하세요</h4>
+          <button class="btn btn-danger" id="close">닫기</button>
+        </div>
+      </div>
+
     <p class="hello">안녕하세yo</p>
     <p class="hello">안녕하세yo</p>
     <p class="hello">안녕하세yo</p>
-    <button id="test-btn">버튼임날눌러줘</button>
+    <button id="test-btn">로그인버튼임날눌러줘</button>
     
     <script>
       // document.querySelector('.hello').innerHTML = '인사똑바로해라';
@@ -37,7 +44,12 @@
       $('.hello').css('color', 'red');
 
       $('#test-btn').on('click', function(){
-        $('.hello').fadeOut();
+        $('.white-bg').fadeIn();
+        $('.black-bg').fadeIn();
+      })
+      $('#close').on('click', function(){
+        $('.white-bg').fadeOut();
+        $('.black-bg').fadeOut();
       })
 
         document.querySelectorAll('.navbar-toggler')[0].addEventListener('click', function(){
