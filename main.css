@@ -24,9 +24,17 @@
     padding: 30px;
     display : none;
   }
+
   .white-bg {
     background: white;
     border-radius: 5px;
     padding: 30px;
-    display: none;
   } 
+
+  .show-modal {
+    display: block;
+  }
+
+  .close-modal {
+    display: none;
+  }

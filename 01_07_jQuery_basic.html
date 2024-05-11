@@ -43,14 +43,19 @@
       $('.hello').html('안녕하십니까!!');
       $('.hello').css('color', 'red');
 
+      // 로그인 버튼을 누르면 black-bg에 있는 show-modal 클래스를 저기 붙여주셈
+      // document.getElementById('login').addEventListener('click', function(){
+      //  document.querySelector('.black-bg').classList.add('show-modal')
+      // })
       $('#test-btn').on('click', function(){
-        $('.white-bg').fadeIn();
-        $('.black-bg').fadeIn();
+        $('.black-bg').addClass('show-modal')
       })
+
       $('#close').on('click', function(){
-        $('.white-bg').fadeOut();
-        $('.black-bg').fadeOut();
+        $('.black-bg').addClass('close-modal')
       })
+
+
 
         document.querySelectorAll('.navbar-toggler')[0].addEventListener('click', function(){
             document.querySelectorAll('#test1')[0].classList.toggle('show');
