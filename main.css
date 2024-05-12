@@ -16,7 +16,7 @@
 }
 
 .black-bg {
-    width : 100%;
+    width : 100%;v
     height : 100%;
     position : fixed;
     background : rgba(0,0,0,0.5);
@@ -40,4 +40,9 @@
 
   .close-modal {
     display: none;
+  }
+
+  .main-bg {
+    padding: 100px 20px;
+    background: lightgray;
   }
