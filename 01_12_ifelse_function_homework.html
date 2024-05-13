@@ -16,6 +16,14 @@
        </div>
        <button type="submit" class="btn btn-primary">전송</button>
     </form> 
+  </br>
+    <h4>공포의 공인중개사 합격 발표</h4>
+    <form action="success.html" id='eduwillForm'>
+      <div class="my-3">
+        <input type="text" id="scoreInput" class="form-control">
+       </div>
+       <button type="submit" class="btn btn-primary">전송</button>
+    </form> 
     
     <script>
         // 전송버튼 누르면
@@ -28,24 +36,41 @@
             console.log("말을해야지~?")
             e.preventDefault();
           } else if (
-            ((document.getElementById('3input').value) % 3 == 0 ) &&
-            ((document.getElementById('3input').value) % 9 != 0 )
+            ((document.getElementById('3input').value) % 10 == 3 ) 
           ) {
             alert("박수.")
             console.log("박수")
             e.preventDefault();
           } else if (
-            ((document.getElementById('3input').value) % 9 == 0 )
+            ((document.getElementById('3input').value) % 10 == 6 )
           ) {
             alert("박수.박수.")
             console.log("박수.박수.")
             e.preventDefault();
-          } else {
+          } else if (
+            ((document.getElementById('3input').value) % 10 == 9 )
+          ) {
+            alert("박수.박수.박수.")
+            console.log("박수.박수.박수.")
+            e.preventDefault();
+          }else {
             alert("자이제맞자")
             console.log("자이제맞자")
             e.preventDefault();
           }
         })
+        function 합격했나(점수1, 점수2) {
+          if ((점수1 + 점수2 >= 120) && (점수1 >= 40 ) && (점수2 >= 40)) {
+            console.log('합격')
+          } else if (
+            (점수1 < 0 || 점수1 >100) ||
+            (점수2 < 0 || 점수2 >100)
+          ) {
+            console.log('이시발롬이 내성격까먹었나보네')
+          } else {
+            console.log('불합격')
+          }
+        }
 
     </script>
 
