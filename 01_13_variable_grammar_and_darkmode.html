@@ -8,7 +8,7 @@
     <link href="main.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body id="body">
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <span class="navbar-brand">SUO</span>
@@ -64,8 +64,10 @@
         console.log(count);
         if (count % 2 == 1) {
           document.getElementById('darkmodeBtn').innerHTML = 'Light🔄';
+          document.getElementById('body').classList.remove('dark');
         } else {
           document.getElementById('darkmodeBtn').innerHTML = 'Dark 🔄';
+          document.getElementById('body').classList.add('dark');
         }
       })
 
