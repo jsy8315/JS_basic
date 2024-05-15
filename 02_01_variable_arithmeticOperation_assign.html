@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="main.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  </head>
+  <body id="body">
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">SUO</span>
+          <span class="badge bg-dark" id="darkmodeBtn">Dark 🔄</span>
+          <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+    </nav> 
+
+      <ul class="list-group" id="test1">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+      </ul>
+    
+      <div class="main-bg">
+        <h4>Shirts on Sale</h4>
+        <button id="totalSavingBtn" class="btn btn-danger">2년 후 총 예금액을 계산해봅시다</button>
+      </div>
+
+      <div class="black-bg">
+        <div class="white-bg">
+          <h4>예금액을 넣어주세요</h4>
+          <form action="success.html"  id="submitForm">
+            <div class="my-3">
+              <input type="number" id="1stDeposit" class="form-control">
+             </div>
+             <button type="submit" class="btn btn-primary">계산</button>
+             <button type="button" class="btn btn-danger" id="close">닫기</button>
+          </form>
+        </div>
+      </div>
+    
+    <script>
+      //Q3. 이자율 계산하기 
+      
+
+
+      // 변수 문법과 dark mode 버튼 만들기
+      // badge 클릭횟수가 홀수면 내부 글자를 light로 변경
+      // badge 클릭횟수가 짝수면 내부 글자를 Dark로 변경
+      // ...
+      var count = 0;
+      $('.badge').on('click', function(){
+        count++;
+        console.log(count);
+        if (count % 2 == 1) {
+          document.getElementById('darkmodeBtn').innerHTML = 'Light🔄';
+          document.getElementById('body').classList.remove('dark');
+        } else {
+          document.getElementById('darkmodeBtn').innerHTML = 'Dark 🔄';
+          document.getElementById('body').classList.add('dark');
+        }
+      })
+
+      // 로그인 버튼을 누르면 black-bg에 있는 show-modal 클래스를 저기 붙여주셈
+      // document.getElementById('login').addEventListener('click', function(){
+      //  document.querySelector('.black-bg').classList.add('show-modal')
+      // })
+      $('#totalSavingBtn').on('click', function(){
+        $('.black-bg').addClass('show-modal')
+      })
+
+      $('#close').on('click', function(){
+        $('.black-bg').addClass('close-modal')
+      })
+
+        document.querySelectorAll('#submitForm')[0].addEventListener('submit', function(e){
+          var 첫예금액 = document.getElementById('1stDeposit').valueAsNumber;
+          var 총예금액 = 0;
+          if(
+            첫예금액 === ''
+          ) {
+            alert("첫 예금액 입력하라고 새꺄ㅋ")
+            e.preventDefault();
+          } else if (
+            첫예금액 < 50000
+          ) {
+            // 연이율 15퍼센트
+            총예금액 = 첫예금액 * 1.15 * 1.15 
+            alert(총예금액)
+            console.log(첫예금액);
+            console.log(총예금액);
+            e.preventDefault();
+          } else if (
+            첫예금액 >= 50000
+          ) {
+            // 연이율 20퍼센트
+            총예금액 = 첫예금액 * 1.2 * 1.2
+            alert(총예금액)
+            console.log(첫예금액);
+            console.log(총예금액);
+            e.preventDefault();
+          } else {
+            alert("어서옵셔")
+          }
+        })
+
+    </script>
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
