@@ -39,7 +39,7 @@
 
       <div class="black-bg">
         <div class="white-bg">
-          <h4>예금액을 넣어주세요</h4>
+          <h4>예금액을 넣기만하면 바로 10년치 미리 드림</h4>
           <form action="success.html"  id="submitForm">
             <div class="my-3">
               <input type="number" id="1stDeposit" class="form-control">
@@ -92,7 +92,7 @@
             첫예금액 < 50000
           ) {
             // 연이율 15퍼센트
-            총예금액 = 첫예금액 * 1.15 * 1.15 
+            총예금액 = 첫예금액 * 1.15 ** 10
             alert(총예금액)
             console.log(첫예금액);
             console.log(총예금액);
@@ -101,7 +101,7 @@
             첫예금액 >= 50000
           ) {
             // 연이율 20퍼센트
-            총예금액 = 첫예금액 * 1.2 * 1.2
+            총예금액 = 첫예금액 * 1.2 ** 10
             alert(총예금액)
             console.log(첫예금액);
             console.log(총예금액);
@@ -111,12 +111,11 @@
           }
         })
 
-        // Q4. 커피 리필을 이상하게 해주는 곳이 있습니다. 최대한 마실 수 있는 커피양을 계산해봅시다. 
+        // Q4. 커피 리필을 이상하게 해주는 곳이 있습니다. 최대한 마실 수 있는 커피양을 계산해봅시다. 걍 무한으로 해드림
         var first = 360;
-        var second = first * 2 / 3;
-        var third = second * 2 / 3;
+        var r = 2/3
         var maxCoffee = 0;
-        maxCoffee = first + second + third;
+        maxCoffee = first / (1/3);
         console.log(maxCoffee)
 
         // Q5. 간단한 퀴즈 UI를 만들어봅시다.
