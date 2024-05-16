@@ -66,20 +66,47 @@
       <button class="slide-1">1</button>
       <button class="slide-2">2</button>
       <button class="slide-3">3</button>
+      <button class="slide-prev">prev</button>
+      <button class="slide-next">next</button>
     <script>
       // 코드 3줄로 캐러셀 (이미지 슬라이드) 만들기(버튼 누르면 넘어감)
       document.querySelector('.slide-1').addEventListener('click', function(){
         document.querySelector('.slide-container').style.transform = 'translateX(0vw)';
+        console.log(document.querySelector('.slide-container').style.transform);
       })
 
       $('.slide-2').on('click', function(){
         $('.slide-container').css('transform', 'translateX(-100vw)');
+        console.log(document.querySelector('.slide-container').style.transform);
         // document.querySelector('.slide-container').style.transform='translateX(-100vw)';
       })
 
       $('.slide-3').on('click', function(){
         $('.slide-container').css('transform', 'translateX(-200vw)');
+        console.log(document.querySelector('.slide-container').style.transform);
         // document.querySelector('.slide-container').style.transform='translateX(-100vw)';
+      }) 
+
+      $('.slide-prev').on('click', function(){
+        $('.slide-container').css('transform', 'translateX(-100vw)');
+        console.log(document.querySelector('.slide-container').style.transform);
+        // document.querySelector('.slide-container').style.transform='translateX(-100vw)';
+      }) 
+
+      $('.slide-next').on('click', function(){
+        if (document.querySelector('.slide-container').style.transform == 'translateX(-200vw)') {
+          alert("마지막 슬라이드 입니다!")
+          console.log(document.querySelector('.slide-container').style.transform);
+        } else if (document.querySelector('.slide-container').style.transform == 'translateX(0vw)') {
+          document.querySelector('.slide-container').style.transform = 'translateX(-100vw)'
+          console.log(document.querySelector('.slide-container').style.transform);
+        } else if (document.querySelector('.slide-container').style.transform == 'translateX(-100vw)') {
+          document.querySelector('.slide-container').style.transform = 'translateX(-200vw)'
+          console.log(document.querySelector('.slide-container').style.transform);
+        } else {
+          alert("흥!")
+          console.log(document.querySelector('.slide-container').style.transform);
+        }
       }) 
 
 
