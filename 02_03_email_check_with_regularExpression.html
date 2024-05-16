@@ -60,7 +60,7 @@
       이름 = 'park' // 재할당은 가능
 
       const 이름2 = "SUO"; //재선언 불가능
-      이름2 = 'jung'; // 재할당도 불가능 > 변하면 안되는 값 보관에 좋을듯
+      // 이름2 = 'jung'; // 재할당도 불가능 > 변하면 안되는 값 보관에 좋을듯
 
 
 
@@ -109,6 +109,8 @@
         // 전송버튼 누르면
         // 저기 input에 입력한 값이 공백이면 알림창 띄워줘ㅋ;
         document.querySelectorAll('#loginForm')[0].addEventListener('submit', function(e){
+          var 입력email = document.getElementById('loginId').value;
+          var 입력pw = document.getElementById('loginPw').value;
           if(
             document.querySelectorAll('#loginId')[0].value == '' &&
             document.querySelectorAll('#loginPw')[0].value == ''
@@ -125,21 +127,30 @@
           ) {
             alert("비번 지대루 입력주시렵니까?")
             e.preventDefault();
-          } else if (
+          } // 이메일 형식 검사도 추가
+
+          else if (
+            /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(입력email) == false
+          ) {
+            alert("이메일형식아닌데요...ㅋㅋ")
+            console.log(입력email);
+            console.log(777);
+            e.preventDefault();
+          } 
+          else if (
+            /[A-Z]/.test(입력pw) == false
+          ) {
+            alert("비번에 대문자 추가하라고 쫌")
+            console.log(입력pw);
+            e.preventDefault();
+          }
+          else if (
             document.querySelectorAll('#loginPw')[0].value.length < 6
           ) {
             alert("비번은 6자이상으루다가~해줘~")
             e.preventDefault();
           } else {
             alert("어서옵셔")
-          }
-          // 이메일 형식 검사도 추가
-          var 입력email = document.querySelectorAll('#loginId')[0].value;
-          if (
-            /\S+@\S+.\S+/.test(입력email)
-          ) {
-            alert("이메일형식아닌데요...ㅋㅋ")
-            e.preventDefault();
           }
         })
 
