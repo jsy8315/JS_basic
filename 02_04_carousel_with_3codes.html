@@ -68,6 +68,7 @@
       <button class="slide-3">3</button>
       <button class="slide-prev">prev</button>
       <button class="slide-next">next</button>
+      <button class="next">다음</button>
     <script>
       // 코드 3줄로 캐러셀 (이미지 슬라이드) 만들기(버튼 누르면 넘어감)
       document.querySelector('.slide-1').addEventListener('click', function(){
@@ -93,6 +94,7 @@
         // document.querySelector('.slide-container').style.transform='translateX(-100vw)';
       }) 
 
+      // next버튼 만들기01
       $('.slide-next').on('click', function(){
         if (document.querySelector('.slide-container').style.transform == 'translateX(-200vw)') {
           alert("마지막 슬라이드 입니다!")
@@ -107,7 +109,21 @@
           alert("흥!")
           console.log(document.querySelector('.slide-container').style.transform);
         }
-      }) 
+      }); 
+
+      // next버튼 만들기01
+      
+      $('.next').on('click', function(){
+        if(지금사진 == 0) {
+          지금사진 -= 100;
+          
+        } else if (지금사진 == -100){
+          지금사진 -= 100;
+          
+        } else if (지금사진 == -200) {
+          
+        }
+      });
 
 
       //변수 심화학습시간 & 저번시간 숙제
