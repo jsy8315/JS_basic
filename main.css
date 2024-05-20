@@ -57,15 +57,11 @@
     transition: all 1s;
   }
  
-  :root {
-    --지금사진 : 0vw;
-  }
-
 
   .slide-box {
     width: 100vw;
     float: left;
-    transform: translateX(var(--지금사진));
+    transform: translateX(0vw);
   }
 
   .slide-box img {
