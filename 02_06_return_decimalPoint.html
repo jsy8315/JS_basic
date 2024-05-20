@@ -80,7 +80,24 @@
         var num = (a * 1.1).toFixed(1);
         return parseFloat(num);
       }
+
+      function mSMAker (a, b) {
+        var result = (a * 60 * 1000) + (b * 1000);
+        return result
+      }
      
+      console.log(mSMAker(2, 10))
+
+      function discountMaker(c, d) {
+        var result = parseFloat((c * 0.9).toFixed(1));
+        if (d == true) {
+          return(result - 1.5);
+        } else {
+          return result;
+        }
+      }
+      console.log(discountMaker(70, false));
+      console.log(discountMaker(10, true));
 
 
 
