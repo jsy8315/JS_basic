@@ -11,7 +11,7 @@
   <body id="body">
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <span class="navbar-brand">SUO</span>
+          <span class="navbar-brand" style="font-size: 30px;">SUO</span>
           <span class="badge bg-dark" id="darkmodeBtn">Dark 🔄</span>
           <button class="navbar-toggler" type="button">
             <span class="navbar-toggler-icon"></span>
@@ -89,10 +89,11 @@
         // 스크롤바 100px 미만이면 로고 사이즈 크게
         var 스크롤양 = document.querySelector('.lorem').scrollTop;
         var 로고크기 = document.querySelector('.navbar-brand').style.font-size;
+        console.log(스크롤양)
         if (스크롤양 >= 100) {
-          로고크기 = 20;
+          로고크기 = 20 + 'px';
         } else {
-          로고크기 = 40;
+          로고크기 = 40 + 'px';
         }
       })
       // $(window).on('scroll', function() {
@@ -100,12 +101,19 @@
       // })
       
       // div의 스크롤바 내린 양 + 눈에 보이는 div 높이 == div의 실제높이
+      var 로고크기 = document.querySelector('.navbar-brand').style.fontSize;
       document.querySelector('.lorem').addEventListener('scroll', function() {
         var 스크롤양 = document.querySelector('.lorem').scrollTop;
         var 실제높이 = document.querySelector('.lorem').scrollHeight;
         var 높이 = document.querySelector('.lorem').clientHeight;
+        
 
-        console.log(스크롤양, 실제높이);
+        console.log(스크롤양, 실제높이, 로고크기);
+        if (스크롤양 >= 100) {
+          로고크기 = 40 + 'px';
+        } else {
+          로고크기 = 20 + 'px';
+        }
       })
 
       // 코드 3줄로 캐러셀 (이미지 슬라이드) 만들기(버튼 누르면 넘어감)
