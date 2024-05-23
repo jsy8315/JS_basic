@@ -102,12 +102,13 @@
       //   $(window).scrollTop()
       // })
       
+      //스크롤 이벤트 숙제
       // div의 스크롤바 내린 양 + 눈에 보이는 div 높이 == div의 실제높이
       document.querySelector('.lorem').addEventListener('scroll', function() {
       var 로고 = document.querySelector('.navbar-brand');
       var 스크롤양 = document.querySelector('.lorem').scrollTop;
       var 실제높이 = document.querySelector('.lorem').scrollHeight;
-      var 높이 = document.querySelector('.lorem').clientHeight;
+      var 보이는높이 = document.querySelector('.lorem').clientHeight;
       var 로고크기 = 로고.style.fontSize; // 로고크기 변수 선언
         console.log(스크롤양, 실제높이, 높이);
         if (스크롤양 >= 100) {
@@ -116,10 +117,12 @@
           로고크기 = '20px'; // 로고크기 변수에 새로운 값 할당
         }
         로고.style.fontSize = 로고크기; // 로고 요소의 font-size에 로고크기 변수의 값을 적용
-        if (스크롤양 + 높이 >= 실제높이) {
-        alert('여기까지왔어?');
+        if (스크롤양 + 보이는높이 >= 실제높이) {
+        alert('다읽었음');
       }
-      
+        document.querySelector('html').scrollHeight //현재 페이지 실제 높이
+        document.querySelector('html').clientHeight //페이지 보이는 높이
+        window.screenY //현재 페이지 스크롤양
       });
       
 
