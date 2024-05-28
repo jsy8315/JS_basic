@@ -25,7 +25,9 @@ $('.list').click(function(e){
     if(e.target == document.querySelectorAll('.tab-button')[2]) {
         탭열기(2)
     }     
-
+    if(e.target == document.querySelectorAll('.tab-button')[3]) {
+        탭열기(3)
+    }   
 })
 
 function 탭열기(숫자) {
