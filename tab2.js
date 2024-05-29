@@ -1,9 +1,10 @@
 // Array와 Object 자료형
 var car = ['소나타', 50000, 'white'];
-var car2 = {name : '그랜저', price : 50000};
+var car2 = {name : '그랜저', price : [50000, 3000, 4000]};
+console.log(car2['price'][0]);
 
 document.querySelector('.car-title').innerHTML = car2['name'];
-document.querySelector('.car-price').innerHTML = car2['price'];
+document.querySelector('.car-price').innerHTML = car2['price'][1];
 console.log(car2['name']);
 console.log(car2.price);
 console.log(car.slice(1,2));
