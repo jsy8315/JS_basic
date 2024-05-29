@@ -1,4 +1,5 @@
 // Array와 Object 자료형
+// 지금 client-side rendering 하는 중임, 데이터바인딩
 var car = ['소나타', 50000, 'white'];
 var car2 = {name : '그랜저', price : [50000, 3000, 4000]};
 console.log(car2['price'][0]);
