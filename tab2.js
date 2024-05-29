@@ -2,8 +2,8 @@
 var car = ['소나타', 50000, 'white'];
 var car2 = {name : '그랜저', price : 50000};
 
-document.querySelector('#carName').innerHTML = car2.name;
-document.querySelector('#carPrice').innerHTML = car2.price;
+document.querySelector('.car-title').innerHTML = car2['name'];
+document.querySelector('.car-price').innerHTML = car2['price'];
 console.log(car2['name']);
 console.log(car2.price);
 console.log(car.slice(1,2));
