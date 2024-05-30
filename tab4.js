@@ -29,6 +29,9 @@ document.querySelectorAll('.form-select')[0].addEventListener('input', function(
     if (value == '셔츠') {
         document.querySelectorAll('.form-select')[1].classList.remove('form-hide');
     }
+    if (value == '모자') {
+        $('.form-select').eq(1).addClass('form-hide');
+    }
 });
 
 
