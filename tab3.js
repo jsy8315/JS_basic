@@ -3,12 +3,16 @@ var products = [
     { id : 1, price : 50000, title : 'Springfield Shirt' },
     { id : 2, price : 60000, title : 'Black Monastery' }
   ];
+  
 
+  //데이터바인딩 숙제, 내 코드
   for(i = 0; i < 3; i++) {
     document.querySelectorAll('.card-title')[i].innerHTML = products[i]['title'];
     document.querySelectorAll('.card-price')[i].innerHTML = products[i]['price'];
   }
+//데이터바인등 숙제, 강사 코드
+document.querySelectorAll('.card-body h5')[0].innerHTML = products[0].title;
+document.querySelectorAll('.card-body p')[0].innerHTML = '가격은요 : ' + products[0].price;
 
-
-// dataset의 내용을 products의 value로 바꾸자
-// 일단 클릭하는건 아니긴한데 흠
+var a = '그래';
+console.log(`어${a}그래`);
