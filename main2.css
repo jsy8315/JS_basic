@@ -89,3 +89,8 @@
     /* width: 700px; */
     height: 20px;
   }
+
+
+.form-hide {
+  display: none;
+}

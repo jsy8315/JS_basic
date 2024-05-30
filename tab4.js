@@ -16,17 +16,21 @@ function 탭열기(숫자) {
 }
 
 // 셔츠고르면 <select>하나 더 보여주기
-// 1. 일단 셔츠를 선택
-// 2. 안보였던 셀렉트 클래스가 생겨남
-var showShirtList = document.querySelector('.list');
+// 아오 어렵네요
+// 답안
+// 유저가 셔츠고르면 form-hide 떼어주세요
+var value = document.querySelectorAll('.form-select')[0].value;
+console.log(value);
+var selectedProducts02 = $('.form-select').eq(0).val();
+console.log(selectedProducts02);
 
-function selectShirt(e) {
-    const selectedShirt = e.value;
-    console.log(selectedShirt);
-    if (selectedShirt == 'shirts') {
-       showShirtList.style.display = "block";
-       console.log(showShirtList.style.display);
-    } else {
-        alert('다시.');
+document.querySelectorAll('.form-select')[0].addEventListener('input', function(e) {
+    var value = e.currentTarget.value;
+    if (value == '셔츠') {
+        document.querySelectorAll('.form-select')[1].classList.remove('form-hide');
     }
-} 
+});
+
+
+
+
