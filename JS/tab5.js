@@ -1,3 +1,33 @@
+// 03.05. Select02 자바스크립트로 html 생성하는 법
+var a = document.createElement('p');
+a.innerHTML = '안녕ㅋ';
+document.querySelector('#test').appendChild(a);
+
+// 이거보다 더 간단한 문법
+var 템플릿 = '<p>안녕ㅋㅋ</p>';
+document.querySelector('#test02').insertAdjacentHTML('beforeend', 템플릿);
+
+// jQuery버전
+var 템플릿제이쿼리 = '<p>안녕제이쿼리ㅎ</p>';
+$('#test03jQuery').append(템플릿제이쿼리);
+
+// 바지선택하면 28, 30 옵션나오게
+document.querySelectorAll('.form-select')[0].addEventListener('input', function(e) {
+    var value = e.currentTarget.value;
+    if (value == '바지') {
+        var pantsSize01 = document.createElement('option');
+        var pantsSize02 = document.createElement('option');
+        pantsSize01.innerHTML = '28';
+        pantsSize02.innerHTML = '30';
+        document.querySelectorAll('.form-select')[1].classList.remove('form-hide');
+        document.querySelectorAll('.form-select')[1].appendChild(pantsSize01);
+        document.querySelectorAll('.form-select')[1].appendChild(pantsSize02);
+    }
+    if (value == '모자') {
+        $('.form-select').eq(1).addClass('form-hide');
+    }
+});
+
 // 좋은 관습 : 자주 쓰는 셀렉터 변수에 넣어쓰기
 var 버튼 = $('.tab-button');
 var 컨텐트 = $('.tab-content');
