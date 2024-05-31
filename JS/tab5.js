@@ -15,17 +15,15 @@ $('#test03jQuery').append(템플릿제이쿼리);
 document.querySelectorAll('.form-select')[0].addEventListener('input', function(e) {
     var value = e.currentTarget.value;
     if (value == '바지') {
-        var pantsSize01 = document.createElement('option');
-        var pantsSize02 = document.createElement('option');
-        pantsSize01.innerHTML = '28';
-        pantsSize02.innerHTML = '30';
         document.querySelectorAll('.form-select')[1].classList.remove('form-hide');
-        document.querySelectorAll('.form-select')[1].appendChild(pantsSize01);
-        document.querySelectorAll('.form-select')[1].appendChild(pantsSize02);
+        var 템플릿바지 = `<option>28</option>
+        <option>30</option>`;
+        $('.form-select').eq(1).html(템플릿바지);
     }
-    if (value == '모자') {
+    if (value == '셔츠') {
         $('.form-select').eq(1).addClass('form-hide');
     }
+
 });
 
 // 좋은 관습 : 자주 쓰는 셀렉터 변수에 넣어쓰기
