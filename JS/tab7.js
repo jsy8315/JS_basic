@@ -1,15 +1,29 @@
 // 03.07.array, for 반복문 실력향상 과제
-var 출석부 = ['손흥민01', '손흥민02', '손흥민03', '손흥민04'];
+// Q. Array에서 철수라는 자료를 찾고 싶습니다
+var 출석부 = ['손흥민01', '손흥민01', '손흥민03', '손흥민04'];
 
 function 이름찾기(name) {
     출석부.forEach(function(a){
         if(name == a) {
             console.log(a + ", 대기중.");
+            return true;
         } else {
             console.log("잘못왔슈");
         }
     })
+
 }
+이름찾기('손흥민01');
+// Q. 갑자기 구구단을 콘솔창에 출력하고 싶습니다.
+var 구구단을외자 = ['SON01', 'SON01', 'SON01', 'SON01', 'SON01', 'SON01', 'SON01', 'SON01', 'SON01'];
+구구단을외자.forEach(function(a, i){
+    구구단을외자.forEach(function(a, j){
+        var mA = (i + 1);
+        var mB = (j + 1);
+        console.log(mA + " X " + mB + " = " + (mA * mB));
+    })
+})
+
 
 // 03.06. Select 3 : forEach, for in 반복문
 var pants = [32, 34, 36];
