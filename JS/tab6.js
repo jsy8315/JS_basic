@@ -1,3 +1,8 @@
+// 03.06. Select 3 : forEach, for in 반복문
+var pants = [32, 34, 36];
+var shirts = [105, 110, 115, 120]; //셔츠 선택시 array 갯수에 맞게 <option> 생성
+
+
 // 03.05. Select02 자바스크립트로 html 생성하는 법
 var a = document.createElement('p');
 a.innerHTML = '안녕ㅋ';
@@ -19,12 +24,21 @@ document.querySelectorAll('.form-select')[0].addEventListener('input', function(
         var 템플릿바지 = `<option>28</option>
         <option>30</option>`;
         $('.form-select').eq(1).html(템플릿바지);
+        pants.forEach(function(a, i){
+            console.log(a, i);
+            document.querySelectorAll('.form-select')[1].insertAdjacentHTML('beforeend',`<option>${a}</optino>`);
+        })
     }
     if (value == '셔츠') {
         $('.form-select').eq(1).addClass('form-hide');
     }
-
 });
+
+var obj = {name : 'kim', age : 20}
+
+for (var key in obj){
+    console.log(key, obj[key]);
+}
 
 // 좋은 관습 : 자주 쓰는 셀렉터 변수에 넣어쓰기
 var 버튼 = $('.tab-button');
