@@ -24,6 +24,24 @@ var 구구단을외자 = ['SON01', 'SON01', 'SON01', 'SON01', 'SON01', 'SON01', 
     })
 })
 
+// Q. 평균점수 계산기 만들기 
+var 기존모의고사성적 = [10, 20, 30, 40 ,50]
+var 성적합 = 0
+기존모의고사성적.forEach(function(a, i){
+    성적합 += a;
+})
+var 성적평균 = 성적합 / (기존모의고사성적.length)
+var 니성적 = document.getElementById('11testScore').value;
+
+document.querySelectorAll('.retryButtton')[0].addEventListener('click', function() {
+    var 니성적 = document.getElementById('11testScore').value;
+    var b = 니성적 - 성적평균;
+    if (니성적 < 성적평균) {
+        alert("재수추천ㅋㅋ")
+    } else {
+        alert(`평균보다 ${b}점이 올랐네요`);
+    }
+});
 
 // 03.06. Select 3 : forEach, for in 반복문
 var pants = [32, 34, 36];
