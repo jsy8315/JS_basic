@@ -1,3 +1,21 @@
+// ajax 요청하는 법 - get
+$.get('https://codingapple1.github.io/price.json').done(function(data){
+  console.log(data.price);
+})
+.fail(function(){
+  console.log('실패요ㅋㅋ');
+})
+
+// 쌩자바스크립트로 구현하기
+fetch('https://codingapple1.github.io/price.json')
+  .then(res => res.json())
+  .then(function(data){
+    console.log(data);
+  })
+  .catch(function(error){
+    console.log('실패ㅋㅋ');
+  })
+
 var products = [
     { id : 0, price : 70000, title : 'Blossom Dress' },
     { id : 1, price : 50000, title : 'Springfield Shirt' },
