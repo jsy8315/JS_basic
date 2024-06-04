@@ -4,7 +4,7 @@ var products = [
     { id : 2, price : 60000, title : 'Black Monastery' }
   ];
 
-
+// 내코드
 products.forEach(function(a, i){
   var 템플릿 = `<div class="col-sm-4"><img src="https://via.placeholder.com/600" class="w-100"></div>`;
   var productTitle = `<h5>${a.title}</h5>`
