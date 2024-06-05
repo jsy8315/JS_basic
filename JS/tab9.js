@@ -20,6 +20,15 @@ fetch('https://codingapple1.github.io/js/more1.json')
 
 });
 
+// 강사코드
+$('.btn-danger').click(function(){
+  $.get('https://codingapple1.github.io/js/more1.json')
+  .done((data)=>{
+    console.log(data)
+  })
+})
+
+
 // 내코드
 // products.forEach(function(a, i){
 //   var 템플릿 = `<div class="col-sm-4"><img src="https://via.placeholder.com/600" class="w-100"></div>`;
