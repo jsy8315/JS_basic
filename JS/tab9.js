@@ -4,11 +4,8 @@ var products = [
     { id : 2, price : 60000, title : 'Black Monastery' }
   ];
 
-// 더보기 버튼 누르면 상품 3개 가져와서 출력하기
-// 버튼 누르기 - 클릭이벤트
+// 더보기 버튼 누르면 상품 3개 가져와서 출력하기 - 쌩자바스크립트로 구현하기
 document.querySelectorAll('.btn-danger')[0].addEventListener('click', function(){
-
-  // 쌩자바스크립트로 구현하기
 fetch('https://codingapple1.github.io/js/more1.json')
   .then(res => res.json())
   .then(function(템플릿02){
@@ -25,6 +22,16 @@ $('.btn-danger').click(function(){
   $.get('https://codingapple1.github.io/js/more1.json')
   .done((data)=>{
     console.log(data)
+
+    data.forEach((a, i)=>{
+      var 템플릿 = 
+      `<div class="col-sm-4">
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5>${data[i].title}</h5>
+        <p>가격 : ${data[i].price}</p>
+      </div>`;
+      $('.row').append(템플릿)
+    })
   })
 })
 
