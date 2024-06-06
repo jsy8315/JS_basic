@@ -52,7 +52,7 @@ $('.btn-danger').click(function(){
   })
   } else {
   // 3번이면 버튼 숨기기
-  alert("그만눌러라.")
+    
   }
 
 })
