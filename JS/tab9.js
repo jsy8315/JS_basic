@@ -52,7 +52,9 @@ $('.btn-danger').click(function(){
   })
   } else {
   // 3번이면 버튼 숨기기
-    
+    alert("상품이 더 없어요");
+    // document.getElementById('showProductsBtn').style.display = 'none';
+    console.log(document.getElementById('showProductsBtn').style);
   }
 
 })
