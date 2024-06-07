@@ -4,17 +4,19 @@ var products = [
     { id : 2, price : 60000, title : 'Black Monastery' }
   ];
 
-var 어레이 = [7, 3, 5, ,2 , 40];
-어레이.sort(function(a,b){
-  return b - a
-});
-console.log(어레이);
+// 03.10. array에 자주 쓰는 sort, map, filter 함수
 
-var 어레이2 = ['a', 'c', 'b', 'd']
-어레이2.sort()
-console.log(어레이2);
-어레이2.reverse()
-console.log(어레이2)
+// var 어레이 = [7, 3, 5, ,2 , 40];
+// 어레이.sort(function(a,b){
+//   return b - a
+// });
+// 1. 버튼을 누른다
+// 2. products안의 데이터를 기준으로 가격순으로 정렬한다
+// 3. 보여준다
+
+var sortProducts = products.sort((a,b) => a.price - b.price);
+console.log(sortProducts)
+;
 
 // 강사코드
   // 누른횟수 카운팅
