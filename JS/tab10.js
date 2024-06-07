@@ -11,9 +11,9 @@ var new어뤠이 = 어뤠이.filter(function(a){
 });
 console.log(new어뤠이);
 
-// 자주쓰는 map함수
+// 자주쓰는 map함수 - 환율 변환기
 var new어뤠이02 = 어뤠이.map(function(a){
-  return a * 4
+  return a * 1000
 });
 console.log(new어뤠이02);
 
@@ -55,6 +55,48 @@ $('.btn-outline-primary').click(function(){
     $('.row').append(템플릿)
   });
   });
+
+  $('#sortProductsByNameRe').click(function(){
+    products.sort(function(a, b){
+      if (b.title < a.title) {
+        return 1
+      } else {
+        return -1
+      }
+    });
+
+    console.log(products);
+    document.querySelector('.row').innerHTML = '';
+    
+    products.forEach((a, i)=>{
+      var 템플릿 = 
+      `<div class="col-sm-4">
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5>${a.title}</h5>
+        <p>가격 : ${products[i].price}</p>
+      </div>`;
+      $('.row').append(템플릿);
+    });
+    });
+
+    $('#showUnder6Btn').click(function(){
+      var under6 = products.filter(function(a){
+        return a.price <= 60000
+      });
+  
+      console.log(under6);
+      document.querySelector('.row').innerHTML = '';
+      
+      under6.forEach((a, i)=>{
+        var 템플릿 = 
+        `<div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100">
+          <h5>${a.title}</h5>
+          <p>가격 : ${under6[i].price}</p>
+        </div>`;
+        $('.row').append(템플릿);
+      });
+      });
 
 
 // 강사코드
