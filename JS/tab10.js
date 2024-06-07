@@ -4,6 +4,21 @@ var products = [
     { id : 2, price : 60000, title : 'Black Monastery' }
   ];
 
+var 어뤠이 = [7, 3, 5, 2, 40]
+// 자주쓰는 filter함수
+var new어뤠이 = 어뤠이.filter(function(a){
+  return a < 4
+});
+console.log(new어뤠이);
+
+// 자주쓰는 map함수
+var new어뤠이02 = 어뤠이.map(function(a){
+  return a * 4
+});
+console.log(new어뤠이02);
+
+
+
   products.forEach((a, i)=>{
     var 템플릿 = 
     `<div class="col-sm-4">
