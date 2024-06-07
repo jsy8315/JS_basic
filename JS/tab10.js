@@ -4,6 +4,15 @@ var products = [
     { id : 2, price : 60000, title : 'Black Monastery' }
   ];
 
+  products.forEach((a, i)=>{
+    var 템플릿 = 
+    `<div class="col-sm-4">
+      <img src="https://via.placeholder.com/600" class="w-100">
+      <h5>${a.title}</h5>
+      <p>가격 : ${products[i].price}</p>
+    </div>`;
+    $('.row').append(템플릿)
+  })
 // 03.10. array에 자주 쓰는 sort, map, filter 함수
 
 // var 어레이 = [7, 3, 5, ,2 , 40];
@@ -15,18 +24,23 @@ var products = [
 // 3. 보여준다
 
 $('.btn-outline-primary').click(function(){
-  var sortProducts = products.sort((a,b) => a.price - b.price);
-  sortProducts.forEach((a, i)=>{
+  // var sortProducts = products.sort((a,b) => a.price - b.price); 내코드
+  products.sort(function(a, b){
+    return a.price - b.price
+  });
+  document.querySelector('.row').innerHTML = '';
+  
+  products.forEach((a, i)=>{
     var 템플릿 = 
     `<div class="col-sm-4">
       <img src="https://via.placeholder.com/600" class="w-100">
       <h5>${a.title}</h5>
-      <p>가격 : ${sortProducts[i].price}</p>
+      <p>가격 : ${products[i].price}</p>
     </div>`;
     $('.row').append(템플릿)
-  })
+  });
+  });
 
-});
 
 // 강사코드
   // 누른횟수 카운팅
@@ -65,12 +79,4 @@ $('.btn-danger').click(function(){
 
 
 // 강사코드
-products.forEach((a, i)=>{
-  var 템플릿 = 
-  `<div class="col-sm-4">
-    <img src="https://via.placeholder.com/600" class="w-100">
-    <h5>${a.title}</h5>
-    <p>가격 : ${products[i].price}</p>
-  </div>`;
-  $('.row').append(템플릿)
-})
+
