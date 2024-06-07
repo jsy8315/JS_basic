@@ -14,9 +14,19 @@ var products = [
 // 2. products안의 데이터를 기준으로 가격순으로 정렬한다
 // 3. 보여준다
 
-var sortProducts = products.sort((a,b) => a.price - b.price);
-console.log(sortProducts)
-;
+$('.btn-outline-primary').click(function(){
+  var sortProducts = products.sort((a,b) => a.price - b.price);
+  sortProducts.forEach((a, i)=>{
+    var 템플릿 = 
+    `<div class="col-sm-4">
+      <img src="https://via.placeholder.com/600" class="w-100">
+      <h5>${a.title}</h5>
+      <p>가격 : ${sortProducts[i].price}</p>
+    </div>`;
+    $('.row').append(템플릿)
+  })
+
+});
 
 // 강사코드
   // 누른횟수 카운팅
