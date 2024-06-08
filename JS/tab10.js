@@ -9,6 +9,7 @@ var 어뤠이 = [7, 3, 5, 2, 40]
 var new어뤠이 = 어뤠이.filter(function(a){
   return a < 4
 });
+
 console.log(new어뤠이);
 
 // 자주쓰는 map함수 - 환율 변환기
@@ -17,6 +18,11 @@ var new어뤠이02 = 어뤠이.map(function(a){
 });
 console.log(new어뤠이02);
 
+//어레이 다나가 순으로 정렬하기
+var 어뢔이 = ['가', '나', '다'];
+어뢔이.sort(function(a, b){
+  return b - a
+})
 
 
   products.forEach((a, i)=>{
