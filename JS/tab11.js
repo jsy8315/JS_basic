@@ -36,7 +36,7 @@ console.log(어뢔이);
       <img src="https://via.placeholder.com/600" class="w-100">
       <h5>${a.title}</h5>
       <p>가격 : ${products[i].price}</p>
-      <button>구매</button>
+      <button type="button" class="btn btn-outline-dark">구매</button>
     </div>`;
     $('.row').append(템플릿)
   })
@@ -50,16 +50,14 @@ localStorage.setItem('num', newArr);
 var 꺼낸거 = localStorage.getItem('num');
 console.log(JSON.parse(꺼낸거)[1]);
 
-
-// 03.10. array에 자주 쓰는 sort, map, filter 함수
-
-// var 어레이 = [7, 3, 5, ,2 , 40];
-// 어레이.sort(function(a,b){
-//   return b - a
-// });
-// 1. 버튼을 누른다
-// 2. products안의 데이터를 기준으로 가격순으로 정렬한다
-// 3. 보여준다
+// 장바구니 기능과 localStorage 숙제1 : 구매버튼 누르면 구매한 상품명 localStorage에 저장하기
+// 1. 애드이벤트리스너 생성
+$('.btn-outline-dark').click(function(){
+  console.log('hiㅋ')
+  });
+// 2. 시블링하여 title값 묶기?
+// 3. 처음 저장인 경우 / 처음저장이 아닌경우 나누기
+// 4. 저장 / 수정
 
 $('.btn-outline-primary').click(function(){
   // var sortProducts = products.sort((a,b) => a.price - b.price); 내코드
