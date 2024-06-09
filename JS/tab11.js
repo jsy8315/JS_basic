@@ -36,9 +36,21 @@ console.log(어뢔이);
       <img src="https://via.placeholder.com/600" class="w-100">
       <h5>${a.title}</h5>
       <p>가격 : ${products[i].price}</p>
+      <button>구매</button>
     </div>`;
     $('.row').append(템플릿)
   })
+
+// localStorage에 array, object를 저장하려면
+// array/object -> JSON으로 바꾸면 저장가능
+// JSON -> array/object : JSON.parse
+var arr = [1, 2, 3];
+var newArr = JSON.stringify(arr);
+localStorage.setItem('num', newArr);  
+var 꺼낸거 = localStorage.getItem('num');
+console.log(JSON.parse(꺼낸거)[1]);
+
+
 // 03.10. array에 자주 쓰는 sort, map, filter 함수
 
 // var 어레이 = [7, 3, 5, ,2 , 40];
@@ -123,6 +135,7 @@ function showProductsList(요청주소) {
         <img src="https://via.placeholder.com/600" class="w-100">
         <h5>${data[i].title}</h5>
         <p>가격 : ${data[i].price}</p>
+        
       </div>`;
       $('.row').append(템플릿)
     })
