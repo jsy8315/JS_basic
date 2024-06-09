@@ -21,8 +21,13 @@ console.log(new어뤠이02);
 //어레이 다나가 순으로 정렬하기
 var 어뢔이 = ['가', '나', '다'];
 어뢔이.sort(function(a, b){
-  return b - a
+  if ((b - a) == 1) {
+    return 1
+  } else {
+    return -1
+  }
 })
+console.log(어뢔이);
 
 
   products.forEach((a, i)=>{
