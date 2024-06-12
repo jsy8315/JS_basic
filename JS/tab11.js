@@ -51,12 +51,20 @@ var 꺼낸거 = localStorage.getItem('num');
 console.log(JSON.parse(꺼낸거)[1]);
 
 // 장바구니 기능과 localStorage 숙제1 : 구매버튼 누르면 구매한 상품명 localStorage에 저장하기
+//추가. 먼저 array를 만드는게 낫지 않나?
+var productTitleList = []; //이거를 시작하자마자 만들고
+function pushProductTitle(pushTest01) {
+  productTitleList.push(pushTest01);
+  var newProductTitleList = JSON.stringify(productTitleList);
+  localStorage.setItem('cart',newProductTitleList);
+}
+
 // 1. 애드이벤트리스너 생성 - 순수자바스크립트로 해볼까?
 // 2. 시블링하여 title값 묶기?
-// 3. 처음 저장인 경우 / 처음저장이 아닌경우 나누기
+// 3. 일단 저장하자
 document.getElementById('buyBtn0').addEventListener('click', function(){
   var productTitle = $("#buyBtn0").prev().prev()[0];
-  
+  pushProductTitle(productTitle);
 });
 
 // 3. 처음 저장인 경우 / 처음저장이 아닌경우 나누기
