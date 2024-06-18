@@ -63,7 +63,8 @@ function pushProductTitle(pushTest01) {
 // 2. 시블링하여 title값 묶기?
 // 3. 일단 저장하자
 document.getElementById('buyBtn0').addEventListener('click', function(){
-  var productTitle = $("#buyBtn0").prev().prev()[0];
+  var productTitle = $("#buyBtn0").siblings('h5').text();
+  console.log(productTitle);
   pushProductTitle(productTitle);
 });
 
