@@ -33,38 +33,56 @@
         </div>
       </div>
 
+
     <p class="hello">안녕하세yo</p>
     <p class="hello">안녕하세yo</p>
     <p class="hello">안녕하세yo</p>
+    <button id="test-btn02">안녕하십니까없애기버튼</button>
     <button id="test-btn">로그인버튼임날눌러줘</button>
+    <button id="test-btn03">서브메뉴접히기버튼</button>
+
+    <div class="blue-bg">
+      test03 밑에서 내려오는 모달창
+    </div>
     
     <script>
       // document.querySelector('.hello').innerHTML = '인사똑바로해라';
       $('.hello').html('안녕하십니까!!');
       $('.hello').css('color', 'red');
 
+      //자바스크립트 예시
       // 로그인 버튼을 누르면 black-bg에 있는 show-modal 클래스를 저기 붙여주셈
       // document.getElementById('login').addEventListener('click', function(){
       //  document.querySelector('.black-bg').classList.add('show-modal')
       // })
+      $('#test-btn02').on('click', function(){
+        $('.hello').toggle();
+      })
+
       $('#test-btn').on('click', function(){
         $('.black-bg').addClass('show-modal')
       })
 
       $('#close').on('click', function(){
+        $('.black-bg').removeClass('show-modal')
         $('.black-bg').addClass('close-modal')
+        $('.black-bg').removeClass('close-modal')
       })
 
+        //document.querySelectorAll('.navbar-toggler')[0].addEventListener('click', function(){
+        //    document.querySelectorAll('#test1')[0].classList.toggle('show');
 
-
-        document.querySelectorAll('.navbar-toggler')[0].addEventListener('click', function(){
-            document.querySelectorAll('#test1')[0].classList.toggle('show');
-
-        // document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', function(){
+        //  document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', function(){
         //     document.getElementsByClassName('list-group')[0].classList.toggle('show');
-        })
-    </script>
+        // })
 
+      $('.navbar-toggler').on('click', function(){
+        $('.list-group').toggle('.show')
+      })
+
+      $('#test-btn03').on('click', function(){
+        $('.blue-bg').addClass('show-blue-bg');
+      })
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>

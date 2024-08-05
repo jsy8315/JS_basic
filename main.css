@@ -9,10 +9,16 @@
 
 .list-group {
     display: none;
+    transition: all 1s;
 }
 
 .show {
     display: block;
+}
+
+.show-nav {
+  display: block;
+  height: 400px;
 }
 
 .black-bg {
@@ -32,6 +38,20 @@
     border-radius: 5px;
     padding: 30px;
   } 
+
+  .blue-bg {
+    width : 500px;
+    height : 0px;
+    background : lightblue;
+    visibility: hidden;
+    transition: all 1s;
+  }
+
+  .show-blue-bg {
+    height : 400px;
+    visibility: visible;
+    opacity: 1;
+  }
 
   .show-modal {
     visibility: visible;
