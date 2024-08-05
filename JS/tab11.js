@@ -61,18 +61,25 @@ function pushProductTitle(pushTest01) {
 // CA 코드
 $('.buy').click(function(e){
   var productTitle = $(e.target).siblings('h5').text();
-
+  pushProductTitle(productTitle);
   // 만약에 이미 cart라는 항목이 있으면 수정
   // 아니면 밑에것 수행
-  if (localStorage.getItem('cart') != null ) {
-    var 꺼낸거 = JSON.parse(localStorage.cart);
-    꺼낸거.push(productTitle);
-    localStorage.setItem('cart',JSON.stringify(꺼낸거));
-  } else {
-    pushProductTitle(productTitle);
-  }
+  // if (localStorage.getItem('cart') != null ) {
+  //   var 꺼낸거 = JSON.parse(localStorage.cart);
+  //   꺼낸거.push(productTitle);
+  //   localStorage.setItem('cart',JSON.stringify(꺼낸거));
+  // } else {
+  //   pushProductTitle(productTitle);
+  // }
 });
 
+//장바구니 보여주기 버튼
+$('.btn-outline-primary').click(function(){
+  // var sortProducts = products.sort((a,b) => a.price - b.price); 내코드
+  products.sort(function(a, b){
+    return a.price - b.price
+  });
+});
 
 $('.btn-outline-primary').click(function(){
   // var sortProducts = products.sort((a,b) => a.price - b.price); 내코드
