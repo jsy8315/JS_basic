@@ -85,6 +85,16 @@
         // $('loginForm').on('submit', function(){
         //   if~~
         // })
+        
+        // 제이쿼리는 input이벤트를 간단하게 쓸 수 없구나
+        // $('#loginId').on('keydown', function(){
+        //   console.log('아침에 운동하고 오니까 몸이 나른한데')
+        // })  
+
+        document.querySelectorAll('#loginId')[0].addEventListener('input', function(){
+          console.log('안녕!!!!')
+        })
+
         document.querySelectorAll('#loginForm')[0].addEventListener('submit', function(e){
           if(
             document.querySelectorAll('#loginId')[0].value == '' &&
@@ -110,10 +120,6 @@
           } else {
             alert("어서옵셔")
           }
-        })
-
-        document.querySelectorAll('#loginId')[0].addEventListener('input', function(){
-          console.log('안녕!!!!')
         })
 
     </script>
