@@ -67,8 +67,8 @@
       <button class="slide-1">1</button>
       <button class="slide-2">2</button>
       <button class="slide-3">3</button>
-      <button class="slide-prev">prev</button>
-      <button class="slide-next">next</button>
+      <button class="slide-prev-btn">prev</button>
+      <button class="slide-next-btn">next</button>
       <button class="next">다음</button>
       <button class="prev">이전</button>
     <script>
@@ -90,14 +90,29 @@
         // document.querySelector('.slide-container').style.transform='translateX(-100vw)';
       }) 
 
-      $('.slide-prev').on('click', function(){
-        $('.slide-container').css('transform', 'translateX(-100vw)');
-        console.log(document.querySelector('.slide-container').style.transform);
-        // document.querySelector('.slide-container').style.transform='translateX(-100vw)';
-      }) 
+      // prev버튼 만들기01
+      $('.slide-prev-btn').on('click', function(){
+        if (document.querySelector('.slide-container').style.transform == 'translateX(0vw)') {
+          alert("첫 슬라이드 입니다!")
+          console.log(document.querySelector('.slide-container').style.transform);
+
+        } else if (document.querySelector('.slide-container').style.transform == 'translateX(-200vw)') {
+          document.querySelector('.slide-container').style.transform = 'translateX(-100vw)'
+          console.log(document.querySelector('.slide-container').style.transform);
+
+        } else if (document.querySelector('.slide-container').style.transform == 'translateX(-100vw)') {
+          document.querySelector('.slide-container').style.transform = 'translateX(0vw)'
+          console.log(document.querySelector('.slide-container').style.transform);
+          
+        } else {
+          alert("흥!")
+          console.log(document.querySelector('.slide-container').style.transform);
+          console.log('흥!')
+        }
+      }); 
 
       // next버튼 만들기01
-      $('.slide-next').on('click', function(){
+      $('.slide-next-btn').on('click', function(){
         if (document.querySelector('.slide-container').style.transform == 'translateX(-200vw)') {
           alert("마지막 슬라이드 입니다!")
           console.log(document.querySelector('.slide-container').style.transform);
