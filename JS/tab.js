@@ -10,16 +10,17 @@ var 컨텐트 = $('.tab-content');
 var countTab = $('.tab-content').length;
 
 //for 반복문으로 코드 복붙 
-for (let i = 0; i < countTab; i++) {
-    버튼.eq(i).on('click', function() {
-        탭열기(i)
-    })
-    console.log('맞는데 왜 안되지')
-}
-// $('.list').click(function(e){
-//     // 탭열기(지금 누른 버튼에 숨겨져있는 data-id) 
-//     탭열기(parseInt(e.target.dataset.id))
-// })
+// for (let i = 0; i < countTab; i++) {
+//     버튼.eq(i).on('click', function() {
+//         탭열기(i)
+//     })
+//     console.log('맞는데 왜 안되지')
+// }
+
+$('.list').click(function(e){
+    // 탭열기(지금 누른 버튼에 숨겨져있는 data-id) 
+    탭열기(parseInt(e.target.dataset.id));
+})
 
 function 탭열기(숫자) {
     버튼.removeClass('orange');

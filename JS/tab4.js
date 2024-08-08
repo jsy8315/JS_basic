@@ -16,7 +16,6 @@ function 탭열기(숫자) {
 }
 
 // 셔츠고르면 <select>하나 더 보여주기
-// 아오 어렵네요
 // 답안
 // 유저가 셔츠고르면 form-hide 떼어주세요
 var value = document.querySelectorAll('.form-select')[0].value;
