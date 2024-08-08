@@ -9,6 +9,24 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   </head>
   <body id="body">
+
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <form action="success.html" id="loginForm">
+          <div class="my-3">
+            <input type="text" id="loginId" class="form-control">
+           </div>
+           <div class="my-3">
+
+             <input type="password" id="loginPw"  class="form-control">
+           </div>
+           <button type="submit" class="btn btn-primary">전송</button>
+           <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form>
+      </div>
+    </div>
+    
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <span class="navbar-brand">SUO</span>
@@ -32,22 +50,7 @@
         <button id="login" class="btn btn-danger">한국인말고 로그인입니다만</button>
       </div>
 
-      <div class="black-bg">
-        <div class="white-bg">
-          <h4>로그인하세요</h4>
-          <form action="success.html" id="loginForm">
-            <div class="my-3">
-              <input type="text" id="loginId" class="form-control">
-             </div>
-             <div class="my-3">
 
-               <input type="password" id="loginPw"  class="form-control">
-             </div>
-             <button type="submit" class="btn btn-primary">전송</button>
-             <button type="button" class="btn btn-danger" id="close">닫기</button>
-          </form>
-        </div>
-      </div>
 
       <!-- 코드 3줄로 캐러셀 (이미지 슬라이드) 만들기 -->
       <div style="overflow: hidden;">
@@ -67,10 +70,11 @@
       <button class="slide-1">1</button>
       <button class="slide-2">2</button>
       <button class="slide-3">3</button>
-      <button class="slide-prev">prev</button>
-      <button class="slide-next">next</button>
+      <button class="slide-prev-btn">prev</button>
+      <button class="slide-next-btn">next</button>
       <button class="next">다음</button>
       <button class="prev">이전</button>
+
     <script>
       // 이벤트 버블링과 이벤트관련 함수들
       document.querySelector('.black-bg').addEventListener('click', function(e) {
@@ -93,36 +97,6 @@
       })
 
 
-
-      // 함수의 return문법 & 소수 다루기
-
-      console.log(vat(55555));
-
-      function vat(a) {
-        var num = (a * 1.1).toFixed(1);
-        return parseFloat(num);
-      }
-
-      function mSMAker (a, b) {
-        var result = (a * 60 * 1000) + (b * 1000);
-        return result
-      }
-     
-      console.log(mSMAker(2, 10))
-
-      function discountMaker(c, d) {
-        var result = parseFloat((c * 0.9).toFixed(1));
-        if (d == true) {
-          return(result - 1.5);
-        } else {
-          return result;
-        }
-      }
-      console.log(discountMaker(70, false));
-      console.log(discountMaker(10, true));
-
-
-
       // 코드 3줄로 캐러셀 (이미지 슬라이드) 만들기(버튼 누르면 넘어감)
       document.querySelector('.slide-1').addEventListener('click', function(){
         document.querySelector('.slide-container').style.transform = 'translateX(0vw)';
@@ -141,14 +115,29 @@
         // document.querySelector('.slide-container').style.transform='translateX(-100vw)';
       }) 
 
-      $('.slide-prev').on('click', function(){
-        $('.slide-container').css('transform', 'translateX(-100vw)');
-        console.log(document.querySelector('.slide-container').style.transform);
-        // document.querySelector('.slide-container').style.transform='translateX(-100vw)';
-      }) 
+      // prev버튼 만들기01
+      $('.slide-prev-btn').on('click', function(){
+        if (document.querySelector('.slide-container').style.transform == 'translateX(0vw)') {
+          alert("첫 슬라이드 입니다!")
+          console.log(document.querySelector('.slide-container').style.transform);
+
+        } else if (document.querySelector('.slide-container').style.transform == 'translateX(-200vw)') {
+          document.querySelector('.slide-container').style.transform = 'translateX(-100vw)'
+          console.log(document.querySelector('.slide-container').style.transform);
+
+        } else if (document.querySelector('.slide-container').style.transform == 'translateX(-100vw)') {
+          document.querySelector('.slide-container').style.transform = 'translateX(0vw)'
+          console.log(document.querySelector('.slide-container').style.transform);
+          
+        } else {
+          alert("흥!")
+          console.log(document.querySelector('.slide-container').style.transform);
+          console.log('흥!')
+        }
+      }); 
 
       // next버튼 만들기01
-      $('.slide-next').on('click', function(){
+      $('.slide-next-btn').on('click', function(){
         if (document.querySelector('.slide-container').style.transform == 'translateX(-200vw)') {
           alert("마지막 슬라이드 입니다!")
           console.log(document.querySelector('.slide-container').style.transform);
@@ -165,13 +154,6 @@
         }
       }); 
 
-      // 코드 3줄로 캐러셀 (이미지 슬라이드) 만들기2
-      // next버튼 만들기01
-      
-      // 다음 버튼 누르면 
-      // 지금 보이는 사진이 1이면 2번 사진 보여주세요~
-      // 지금 보이는 사진이 2이면 3번 사진 보여주세요~
-      
       var 지금사진 = 0;
 
       $('.next').on('click', function(){
@@ -235,7 +217,9 @@
       })
 
       $('#close').on('click', function(){
+        $('.black-bg').removeClass('show-modal')
         $('.black-bg').addClass('close-modal')
+        $('.black-bg').removeClass('close-modal')
       })
 
 
