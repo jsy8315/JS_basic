@@ -4,32 +4,6 @@ var products = [
     { id : 2, price : 60000, title : 'Black Monastery' }
   ];
 
-var 어뤠이 = [7, 3, 5, 2, 40]
-// 자주쓰는 filter함수
-var new어뤠이 = 어뤠이.filter(function(a){
-  return a < 4
-});
-
-console.log(new어뤠이);
-
-// 자주쓰는 map함수 - 환율 변환기
-var new어뤠이02 = 어뤠이.map(function(a){
-  return a * 1000
-});
-console.log(new어뤠이02);
-
-//어레이 다나가 순으로 정렬하기
-var 어뢔이 = ['가', '다', '나'];
-어뢔이.sort(function(a, b){
-  if ((b - a) > 0) {
-    return 1
-  } else {
-    return -1
-  }
-})
-console.log(어뢔이);
-
-
   products.forEach((a, i)=>{
     var 템플릿 = 
     `<div class="col-sm-4">
@@ -45,13 +19,14 @@ console.log(어뢔이);
 // array/object -> JSON으로 바꾸면 저장가능
 // JSON -> array/object : JSON.parse
 var arr = [1, 2, 3];
-var newArr = JSON.stringify(arr);
+var newArr = JSON.stringify(arr); //JSON으로 바꿈
 localStorage.setItem('num', newArr);  
 var 꺼낸거 = localStorage.getItem('num');
-console.log(JSON.parse(꺼낸거)[1]);
+console.log(JSON.parse(꺼낸거)[1]); //JSON으로 바꾼거 다시 바꿈
 
 // 장바구니 기능과 localStorage 숙제1 : 구매버튼 누르면 구매한 상품명 localStorage에 저장하기
 var productTitleList = []; 
+
 function pushProductTitle(pushTest01) {
   productTitleList.push(pushTest01);
   var newProductTitleList = JSON.stringify(productTitleList);
@@ -73,11 +48,17 @@ $('.buy').click(function(e){
   // }
 });
 
-//장바구니 보여주기 버튼
-$('.btn-outline-primary').click(function(){
-  // var sortProducts = products.sort((a,b) => a.price - b.price); 내코드
-  products.sort(function(a, b){
-    return a.price - b.price
+//장바구니 보여주기 버튼 내 코드
+$('#showCart').click(function(){
+  // 01.로컬스토리지에서 cart 오브젝트를 가져오고
+  var cartList = localStorage.getItem('cart');
+  cartList = JSON.parse(cartList);
+  console.log(cartList);
+// 02. html을 forEach문을 통해서 넣는 방법으로 하자
+  cartList.forEach(function(a,i){
+    var 카트템플릿 = 
+    `<p>${a}</p>`;
+    $('#showCartList').append(카트템플릿);
   });
 });
 
@@ -127,7 +108,6 @@ $('.btn-outline-primary').click(function(){
         return a.price <= 60000
       });
   
-      console.log(under6);
       document.querySelector('.row').innerHTML = '';
       
       under6.forEach((a, i)=>{

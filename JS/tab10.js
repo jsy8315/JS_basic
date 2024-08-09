@@ -10,6 +10,11 @@ var new어뤠이 = 어뤠이.filter(function(a){
   return a < 4
 });
 
+어뤠이.sort(function(a,b){
+  return a - b
+});
+console.log(어뤠이);
+
 console.log(new어뤠이);
 
 // 자주쓰는 map함수 - 환율 변환기
