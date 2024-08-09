@@ -1,40 +1,37 @@
 // 03.06. Select 3 : forEach, for in 반복문
-var pants = [32, 34, 36];
+var pants = [32, 34, 36, 38];
 var shirts = [105, 110, 115, 120]; //셔츠 선택시 array 갯수에 맞게 <option> 생성
 
 
-// 03.05. Select02 자바스크립트로 html 생성하는 법
-var a = document.createElement('p');
-a.innerHTML = '안녕ㅋ';
-document.querySelector('#test').appendChild(a);
-
-// 이거보다 더 간단한 문법
-var 템플릿 = '<p>안녕ㅋㅋ</p>';
-document.querySelector('#test02').insertAdjacentHTML('beforeend', 템플릿);
-
-// jQuery버전
-var 템플릿제이쿼리 = '<p>안녕제이쿼리ㅎ</p>';
-$('#test03jQuery').append(템플릿제이쿼리);
-
 // 바지선택하면 28, 30 옵션나오게
+//그냥 따옴표(큰 따옴표) 누르면 엔터키안됨 -> 백틱쓰기
 document.querySelectorAll('.form-select')[0].addEventListener('input', function(e) {
     var value = e.currentTarget.value;
+
     if (value == '바지') {
         document.querySelectorAll('.form-select')[1].classList.remove('form-hide');
         var 템플릿바지 = `<option>28</option>
         <option>30</option>`;
         $('.form-select').eq(1).html(템플릿바지);
-        pants.forEach(function(a, i){
-            console.log(a, i);
-            document.querySelectorAll('.form-select')[1].insertAdjacentHTML('beforeend',`<option>${a}</optino>`);
+        pants.forEach(function(a){
+            $('.form-select').eq(1).append(`<option>${a}</option>`)
         })
     }
+
     if (value == '셔츠') {
+        document.querySelectorAll('.form-select')[1].classList.remove('form-hide');
+        $('.form-select').eq(1).empty();
+        shirts.forEach(function(a){
+            $('.form-select').eq(1).append(`<option>${a}</option>`)
+        })
+    }
+
+    if (value == '모자') {
         $('.form-select').eq(1).addClass('form-hide');
     }
 });
 
-var obj = {name : 'kim', age : 20}
+var obj = {name : 'kim', age : 20, sex : 'M', address : 'Earth'}
 
 for (var key in obj){
     console.log(key, obj[key]);
@@ -56,26 +53,6 @@ function 탭열기(숫자) {
     컨텐트.removeClass('show');
     컨텐트.eq(숫자).addClass('show');
 }
-
-// 셔츠고르면 <select>하나 더 보여주기
-// 아오 어렵네요
-// 답안
-// 유저가 셔츠고르면 form-hide 떼어주세요
-var value = document.querySelectorAll('.form-select')[0].value;
-console.log(value);
-var selectedProducts02 = $('.form-select').eq(0).val();
-console.log(selectedProducts02);
-
-document.querySelectorAll('.form-select')[0].addEventListener('input', function(e) {
-    var value = e.currentTarget.value;
-    if (value == '셔츠') {
-        document.querySelectorAll('.form-select')[1].classList.remove('form-hide');
-    }
-    if (value == '모자') {
-        $('.form-select').eq(1).addClass('form-hide');
-    }
-});
-
 
 
 

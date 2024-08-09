@@ -64,12 +64,22 @@ $('.btn-danger').click(function(){
 // })
 
 // 강사코드
-products.forEach((a, i)=>{
+// products.forEach((a, i)=>{
+//   var 템플릿 = 
+//   `<div class="col-sm-4">
+//     <img src="https://via.placeholder.com/600" class="w-100">
+//     <h5>${a.title}</h5>
+//     <p>가격 : ${products[i].price}</p>
+//   </div>`;
+//   $('.row').append(템플릿)
+// })
+
+products.forEach(function(a, i){
   var 템플릿 = 
   `<div class="col-sm-4">
     <img src="https://via.placeholder.com/600" class="w-100">
     <h5>${a.title}</h5>
-    <p>가격 : ${products[i].price}</p>
+    <p>가격 : ${a.price}</p>
   </div>`;
   $('.row').append(템플릿)
 })
