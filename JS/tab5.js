@@ -16,11 +16,26 @@ $('#test03jQuery').append(템플릿제이쿼리);
 //그냥 따옴표(큰 따옴표) 누르면 엔터키안됨 -> 백틱쓰기
 document.querySelectorAll('.form-select')[0].addEventListener('input', function(e) {
     var value = e.currentTarget.value;
+
     if (value == '바지') {
         document.querySelectorAll('.form-select')[1].classList.remove('form-hide');
         var 템플릿바지 = `<option>28</option>
         <option>30</option>`;
         $('.form-select').eq(1).html(템플릿바지);
+    }
+
+    if (value == '셔츠') {
+        // 일단 기존에 바지에서 썼던 템플릿바지 html을 지워줘야함
+        document.querySelectorAll('.form-select')[1].classList.remove('form-hide');
+        $('.form-select').eq(1).empty();
+        var 템플릿셔츠 = `<option>110</option>
+        <option>115</option>
+        <option>120</option>`;
+        $('.form-select').eq(1).html(템플릿셔츠);
+    }
+
+    if (value == '모자') {
+        $('.form-select').eq(1).addClass('form-hide');
     }
 });
 
@@ -49,21 +64,6 @@ console.log(value);
 var selectedProducts02 = $('.form-select').eq(0).val();
 console.log(selectedProducts02);
 
-document.querySelectorAll('.form-select')[0].addEventListener('input', function(e) {
-    var value = e.currentTarget.value;
-    if (value == '셔츠') {
-        // 일단 기존에 바지에서 썼던 템플릿바지 html을 지워줘야함
-        $('.form-select').eq(1).empty();
-        var 템플릿셔츠 = `<option>110</option>
-        <option>115</option>
-        <option>120</option>`;
-        $('.form-select').eq(1).html(템플릿셔츠);
-        document.querySelectorAll('.form-select')[1].classList.remove('form-hide');
-    }
-    if (value == '모자') {
-        $('.form-select').eq(1).addClass('form-hide');
-    }
-});
 
 
 
