@@ -21,7 +21,32 @@
       </div>
     </div>
 
-    <script src=""></script>
+    <script>
+      $(window).scroll(function(){
+        var 높이 = $(window).scrollTop();
+        console.log(높이);
+
+        // 650-1150까지 스크롤바 내리면 첫째카드의 opacity를 1 > 0으로 서서히 변경하기
+        var y = -(1 / 500) * 높이 + (1150 / 500)
+        $('.card-box').eq(0).css('opacity', y);
+
+        // 1350-1950까지 스크롤바 내리면 첫째카드의 opacity를 1 > 0으로 서서히 변경하기
+        var y = -(1 / 600) * 높이 + (1950 / 600)
+        $('.card-box').eq(1).css('opacity', y);
+
+        // 650-1150까지 스크롤바 내리면 첫째카드의 scale을 1 > 0.9으로 서서히 변경하기
+        if (높이 >= 650) {
+          var scaleCard = -(0.1 / 500) * 높이 + (5650 / 5000);
+        $('.card-box').eq(0).css('scale', scaleCard);
+        }
+
+        // 1350-1950까지 스크롤바 내리면 첫째카드의 scale을 1 > 0.9으로 서서히 변경하기
+        if (높이 >= 1350) {
+          var scaleCard = -(0.1 / 600) * 높이 + (7350 / 6000);
+        $('.card-box').eq(1).css('scale', scaleCard);
+        }
+      });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
