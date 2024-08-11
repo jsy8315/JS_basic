@@ -9,9 +9,12 @@ $('.slide-box').eq(0).on('mousedown', function(e){
 });
 
 $('.slide-box').eq(0).on('mousemove', function(e){
-  if (마우스눌렀나01 == true) {
+  if (마우스눌렀나01 == true && (e.clientX - 시작좌표01) < 0) {
     $('.slide-container').css('transform', 
       `translateX(${e.clientX - 시작좌표01}px)`);
+      console.log(e.clientX - 시작좌표01);
+  } else if (마우스눌렀나01 == true && (e.clientX - 시작좌표01) >= 0) {
+    console.log('왼쪽엔 아무것도 없어유')
   }
 });
 
@@ -29,7 +32,40 @@ $('.slide-box').eq(0).on('mouseup', function(e){
   },500)
 });
 
-//모바일 터치 이벤트리스너
+// 2,3번째 사진에도 적용
+var 시작좌표02 = 0;
+var 마우스눌렀나02 = false;
+
+$('.slide-box').eq(1).on('mousedown', function(e){
+  시작좌표02 = e.clientX;
+  마우스눌렀나02 = true;
+});
+
+$('.slide-box').eq(1).on('mousemove', function(e){
+  if (마우스눌렀나02 == true) {
+    $('.slide-container').css('transform', 
+      `translateX(${e.clientX - 시작좌표02 - 1350}px)`);
+      // console.log(e.clientX - 시작좌표02 - 1350);
+  } 
+});
+
+$('.slide-box').eq(1).on('mouseup', function(e){
+  마우스눌렀나02 = false;
+
+  if (e.clientX - 시작좌표02 - 1350 < -2000) {
+    $('.slide-container').css('transition', 'all 0.5s').css('transform', 'translateX(-200vw)');
+  } else {
+    $('.slide-container').css('transition', 'all 0.5s').css('transform', 'translateX(-100vw)');
+  }
+  setTimeout(()=>{
+    $('.slide-container').css('transition', 'none')
+
+  },500)
+});
+
+
+
+//모바일 터치 이벤트리스너 달아주기
 $('.slide-box').eq(0).on('touchstart', function(e){
   시작좌표01 = e.touches[0].clientX;
   마우스눌렀나01 = true;
