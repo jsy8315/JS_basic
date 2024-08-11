@@ -8,18 +8,28 @@ $('.slide-box').eq(0).on('mousedown', function(e){
   마우스눌렀나 = true;
 });
 
+// 내코드
 // 이동거리가 600px 이상이면 둘째 사진
 // 이동거리가 600px 미만이면 다시 첫째 사진으로
 
 $('.slide-box').eq(0).on('mousemove', function(e){
-  if (마우스눌렀나 == true) {
+  if (마우스눌렀나 == true && (600 >= (시작좌표 - e.clientX) >= 0)) {
     $('.slide-container').css('transform', 
       `translateX(${e.clientX - 시작좌표}px)`);
+  }
+
+  if (마우스눌렀나 == true && ((시작좌표 - e.clientX) >= 600)) {
+    $('.slide-container').css('transform', 
+      `translateX(-100vw)`);
   }
 });
 
 $('.slide-box').eq(0).on('mouseup', function(e){
   마우스눌렀나 = false;
+  if (마우스눌렀나 == false && (600 >= (시작좌표 - e.clientX) >= 0)) {
+    $('.slide-container').css('transform', 
+      `translateX(0vw)`);
+  }
 });
 
 // $('.slide-box').eq(0).on('mousedown', function(){
