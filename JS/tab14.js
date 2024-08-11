@@ -1,35 +1,63 @@
 // 03.17.캐러셀에 스와이프 기능 만들기
 
-var 시작좌표 = 0;
-var 마우스눌렀나 = false;
+var 시작좌표01 = 0;
+var 마우스눌렀나01 = false;
 
 $('.slide-box').eq(0).on('mousedown', function(e){
-  시작좌표 = e.clientX;
-  마우스눌렀나 = true;
+  시작좌표01 = e.clientX;
+  마우스눌렀나01 = true;
 });
 
-// 내코드
-// 이동거리가 600px 이상이면 둘째 사진
-// 이동거리가 600px 미만이면 다시 첫째 사진으로
-
 $('.slide-box').eq(0).on('mousemove', function(e){
-  if (마우스눌렀나 == true && (600 >= (시작좌표 - e.clientX) >= 0)) {
+  if (마우스눌렀나01 == true) {
     $('.slide-container').css('transform', 
-      `translateX(${e.clientX - 시작좌표}px)`);
-  }
-
-  if (마우스눌렀나 == true && ((시작좌표 - e.clientX) >= 600)) {
-    $('.slide-container').css('transform', 
-      `translateX(-100vw)`);
+      `translateX(${e.clientX - 시작좌표01}px)`);
   }
 });
 
 $('.slide-box').eq(0).on('mouseup', function(e){
-  마우스눌렀나 = false;
-  if (마우스눌렀나 == false && (600 >= (시작좌표 - e.clientX) >= 0)) {
-    $('.slide-container').css('transform', 
-      `translateX(0vw)`);
+  마우스눌렀나01 = false;
+
+  if (e.clientX - 시작좌표01 < -600) {
+    $('.slide-container').css('transition', 'all 0.5s').css('transform', 'translateX(-100vw)');
+  } else {
+    $('.slide-container').css('transition', 'all 0.5s').css('transform', 'translateX(0vw)');
   }
+  setTimeout(()=>{
+    $('.slide-container').css('transition', 'none')
+
+  },500)
+});
+
+//모바일 터치 이벤트리스너
+$('.slide-box').eq(0).on('touchstart', function(e){
+  시작좌표01 = e.touches[0].clientX;
+  마우스눌렀나01 = true;
+});
+
+$('.slide-box').eq(0).on('touchmove', function(e){
+  if (마우스눌렀나01 == true) {
+    $('.slide-container').css('transform', 
+      `translateX(${e.touches[0].clientX - 시작좌표01}px)`);
+  }
+});
+
+$('.slide-box').eq(0).on('touchend', function(e){
+  마우스눌렀나01 = false;
+
+  if (e.changedTouches[0].clientX - 시작좌표01 < -100) {
+    $('.slide-container')
+    .css('transition', 'all 0.5s')
+    .css('transform', 'translateX(-100vw)');
+  } else {
+    $('.slide-container')
+    .css('transition', 'all 0.5s')
+    .css('transform', 'translateX(0vw)');
+  }
+  setTimeout(()=>{
+    $('.slide-container').css('transition', 'none')
+
+  },500)
 });
 
 // $('.slide-box').eq(0).on('mousedown', function(){
