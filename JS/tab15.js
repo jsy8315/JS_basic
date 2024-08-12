@@ -18,7 +18,7 @@ document.querySelector('#quiz').addEventListener('click', function(e){
       break
     case '지섭이':
       alert('사람이 개만도 못하네ㅋ')  
-      break
+      // break
   }
 });
 
